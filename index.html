@@ -27,12 +27,20 @@
             flex-direction: column;
         }
 
-        .backgrounds {
-            -webkit-filter: blur(4px) saturate(.5) brightness(.8);
-            -moz-filter: blur(4px) saturate(.7) brightness(.9);
-            -o-filter: blur(4px) saturate(.7) brightness(.9);
-            -ms-filter: blur(4px) saturate(.7) brightness(.9);
-            filter: blur(4px) saturate(.7) brightness(.7);
+        .slide-background.blur {
+            -webkit-filter: saturate(.5) brightness(.8);
+            -moz-filter: saturate(.7) brightness(.9);
+            -o-filter: saturate(.7) brightness(.9);
+            -ms-filter: saturate(.7) brightness(.9);
+            filter: saturate(.7) brightness(.5);
+        }
+
+        .slide-background.blur-light {
+            -webkit-filter: saturate(.5) brightness(.8);
+            -moz-filter: saturate(.7) brightness(.9);
+            -o-filter: saturate(.7) brightness(.9);
+            -ms-filter: saturate(.7) brightness(.9);
+            filter: saturate(.8) brightness(.8);
         }
 
         .flex-row-layout {
@@ -48,79 +56,127 @@
         .flex-1 {
             flex: 1;
         }
+
+        .flex-2 {
+            flex: 2;
+        }
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
         <section>
-            <section
-                    data-background-image="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg">
-                <h3>Title</h3>
+            <section data-background-color="#a0314e">
+                <h1>Quintor</h1>
+            </section>
+            <section class="blur"
+                     data-background-image="./images/quintor-session.jpg">
+                <h1>Consultants</h1>
+                <ul>
+                    <li>Software architecture</li>
+                    <li>Java .NET development</li>
+                    <li>Web development</li>
+                    <li>Mobile development</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section class="blur-light" data-background-image="images/bloom-blossom-clouds.jpg">
+                <h2>Frontend</h2>
                 <div class="flex-row-layout">
-                    <div class="flex-1">
-                        <img style="height: 60%"
-                             src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/responsive.png"/>
+                    <ul class="flex-2"
+                        style="padding: .5em; border:none">
+                        <li class="fragment fade-up">UI/UX Designers</li>
+                        <li class="fragment fade-up">Frontend developers</li>
+                        <ul>
+                            <li class="fragment fade-up">HTML</li>
+                            <li class="fragment fade-up">CSS</li>
+                            <li class="fragment fade-up">JavaScript</li>
+                        </ul>
+                    </ul>
                 </div>
             </section>
-            <section
-                    data-background-image="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg">
-                <h3>Title</h3>
+            <section class="blur-light" data-background-image="images/cold-dark.jpg">
+                <h2>Backend</h2>
                 <div class="flex-row-layout">
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
-                    <div class="flex-1">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec rhoncus bibendum sem vitae scelerisque.
-                            Aliquam id finibus tortor.
-                        </p>
-                    </div>
+                    <ul class="flex-2"
+                        style="padding: .5em; border:none">
+                        <li class="fragment fade-up"
+                            data-fragment-index="1">Backend developers
+                        </li>
+                        <ul>
+                            <li class="fragment fade-up"
+                                data-fragment-index="2">Java/.NET
+                            </li>
+                        </ul>
+                        <li class="fragment fade-up"
+                            data-fragment-index="3">Databases
+                            <ul>
+                                <li class="fragment fade-up"
+                                <li class="fragment fade-up"
+                                    data-fragment-index="4">SQL
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment fade-up"
+                            data-fragment-index="5">Integration with other systems
+                        </li>
+                    </ul>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/database.png"
+                         data-fragment-index="0"/>
                 </div>
             </section>
-            <section
-                    data-background-image="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg">
-                <h3>Title</h3>
+
+            <section class="blur-light" data-background-image="images/dusk.jpg">
+                <h2>Fullstack</h2>
                 <div class="flex-row-layout">
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/responsive.png"/>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/database.png"/>
                 </div>
             </section>
-            <section
-                    data-background-image="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg">
-                <h3>Title</h3>
+            <section class="blur-light" data-background-image="images/dusk.jpg">
                 <div class="flex-row-layout">
-                    <p class="flex-1">
-                        Test
-                    </p>
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
-                </div>
-                <div class="flex-row-layout">
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
-                    <div class="flex-1" style="padding-top: .5em">
-                        <img src="https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg"/>
-                    </div>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/frontend.jpg"/>
+                    <img class="flex-1 fragment fade-up"
+                         style="padding: 1em; border:none"
+                         height="250"
+                         src="images/backend.jpg"/>
                 </div>
             </section>
         </section>
-
-        <section
-                data-background-image="https://images.pexels.com/photos/235807/pexels-photo-235807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                data-markdown="presentation.md" data-separator="^\r?\n---\r?\n$"
-                data-separator-vertical="^\r?\n--\r?\n$" data-separator-notes="^Note:"></section>
-        <section>Slide 2</section>
+        <section data-background-image="images/architect-blueprint.jpg">
+            <h4></h4>
+        </section>
+        <!--<div class="flex-row-layout">-->
+        <!--<img class="flex-1 fragment fade-up"-->
+        <!--style="padding: 1em; border:none"-->
+        <!--height="100"-->
+        <!--src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png"/>-->
+        <!--<img class="flex-1 fragment fade-up"-->
+        <!--style="padding: 1em; border:none"-->
+        <!--height="100"-->
+        <!--src="https://upload.wikimedia.org/wikipedia/commons/6/66/Android_robot.png"/>-->
+        <!--<img class="flex-1 fragment fade-up"-->
+        <!--style="padding: 1em; border:none"-->
+        <!--height="100"-->
+        <!--src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png"/>-->
+        <!--</div>-->
     </div>
 </div>
 
