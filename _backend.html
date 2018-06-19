@@ -1,0 +1,97 @@
+<section class="blur" data-background-image="images/server-room.jpg">
+    <h1>Backend</h1>
+    <aside class="notes">
+        <ul>
+            <li>So far we've talked about frontend perspective</li>
+            <li>Existing landscape? New stack?</li>
+        </ul>
+    </aside>
+</section>
+
+<section class="blur" data-background-image="images/server-room.jpg">
+    <img src="images/api.png" style="border: none; padding: 1em"/>
+    <ul>
+        <li class="fragment fade-up">RESTful</li>
+        <ul style="font-size: .6em">
+            <li class="fragment fade-up">Fetch healthy advice (GET -> www.my-domain/advice)</li>
+            <li class="fragment fade-up">Fetch specific advice (GET -> www.my-domain/advice/123)</li>
+            <li class="fragment fade-up">Create healthy advice (POST -> www.my-domain/advice)</li>
+            <li class="fragment fade-up">Update healthy advice (PUT/PATCH -> www.my-domain/advice)</li>
+        </ul>
+    </ul>
+    <aside class="notes">
+        <ul>
+            <li>Contract between frontend and backend developers</li>
+            <li>Design by architects</li>
+            <li>Documentation!</li>
+            <li>Not fit for purpose!</li>
+        </ul>
+    </aside>
+
+</section>
+
+<section class="blur" data-background-image="images/server-room.jpg">
+    <img src="images/server.png" style="border: none; padding: 1em"/>
+    <ul>
+        <li class="fragment fade-up">Integration</li>
+        <ul style="font-size: .6em">
+            <li  class="fragment fade-up">Collect data from Database for API</li>
+            <li class="fragment fade-up">Integrate with other systems</li>
+            <ul>
+                <li class="fragment fade-up">Send letters to home address</li>
+                <li class="fragment fade-up">Send confirmation email</li>
+                <li class="fragment fade-up">Store data at other systems within organisation</li>
+                <li class="fragment fade-up">...</li>
+            </ul>
+        </ul>
+    </ul>
+    <aside class="notes">
+        <ul>
+            <li>Layer after API</li>
+            <li>Existing/external systems</li>
+            <li>Complex depending on landscape</li>
+        </ul>
+    </aside>
+
+</section>
+
+<section class="blur" data-background-image="images/server-room.jpg">
+    <img src="images/database.png" style="border: none; padding: 1em"/>
+    <ul>
+        <li class="fragment fade-up">Database</li>
+        <ul style="font-size: .6em">
+            <li class="fragment fade-up">Holds data</li>
+            <ul>
+                <li class="fragment fade-up">Backups</li>
+                <li class="fragment fade-up">Cleaning up data</li>
+                <li class="fragment fade-up">...</li>
+            </ul>
+        </ul>
+    </ul>
+    <aside class="notes">
+        <ul>
+            <li>Layer after integration</li>
+            <li>All company and user data</li>
+            <li>Syncs with potential other systems</li>
+        </ul>
+    </aside>
+</section>
+
+<section class="blur" data-background-image="images/server-room.jpg">
+    <h1>Landscape</h1>
+
+    <div style="display: flex;flex-direction: row;">
+        <div style="padding:.2em; border: 2px solid white; display: flex; flex-direction: row;">
+            <img class="fragment fade-up" src="images/responsive.png" width="128" height="128" style="border: none; padding: 1em;"/>
+        </div>
+        <div style="align-self: center">--</div>
+        <div style="padding:.2em; border: 2px solid white; display: flex; flex-direction: row;">
+            <img class="fragment fade-up" src="images/api.png" style="border: none; padding: 1em"/>
+            <div class="fragment fade-up" style="align-self: center">&gt;</div>
+            <img class="fragment fade-up" src="images/server.png" style="border: none; padding: 1em"/>
+            <div class="fragment fade-up" style="align-self: center">&gt;</div>
+            <img class="fragment fade-up" src="images/database.png" style="border: none; padding: 1em"/>
+        </div>
+
+    </div>
+</section>

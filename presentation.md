@@ -1,6 +1,5 @@
-# Markdown Slide
+### Hi
 
 --
 
-# Second markdown slide
-
+# Hi
