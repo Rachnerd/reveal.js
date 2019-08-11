@@ -1,3 +1,28 @@
 <section>
-    <h2>This is a slide</h2>
+    <h2>Going Full Stack with GraphQL</h2>
+    <aside class="notes">
+        Today we're going to explore the benefits of a single data schema for all your all servers and clients.
+        We'll start with a small use-case of a very limited review site that contains items, reviews and users.
+        The client is written in React/Angular and the data is provided by a Spring REST backend.
+    </aside>
+</section>
+<section>
+    <h2>Me</h2>
+    <aside class="notes">
+        Today we're going to explore the benefits of a single data schema for all your all servers and clients.
+        We'll start with a small use-case of a very limited review site that contains items, reviews and users.
+        The client is written in React/Angular and the data is provided by a Spring REST backend.
+    </aside>
+</section>
+<section>
+    GQL
+</section>
+<section data-transition="slide-in none">
+    <h2>REST Backend</h2>
+    <iframe frameborder="0" style="width:100%;height:400px;"
+            src="https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=REST.drawio#R7VnLcqM6EP0aL4fiZRwv40cyi0xNajw1c%2B%2FKJYMMmghECfmVr78tI4Gx8Gts527iRUBHTSN19zkSSscbputnjvLkG4sw7bh2tO54o47rOg%2B2AxeJbBQCvxKJOYkUVgMT8o4VaCt0QSJcNAwFY1SQvAmGLMtwKBoY4pytmmZzRptvzVGMDWASImqiv0kkkhJ9cHs1%2FhWTONFvdoJ%2B2ZMibaxmUiQoYqsdyBt3vCFnTJR36XqIqYyejkv53NOB3mpgHGfinAce17kz%2FYVY%2Fhy69P33r6HTW3xRXpaILtSE1WDFRkcAxp3L23BDSRZh3vEGq4QIPMlRKPEVZB6wRKQUWg7cztgCDKOXWQWg8C3mEv2%2BEOAFK7wQnL1VcfUBMSelR4i5wOsdSE3yGbMUC74BE9Xb0xWmSs7td8v2qs6fY6ukJLu505lCqmbiyncdVrhRkb0gyr5jRBVHUGaqybhIWMwyRMc1OuBlFKHfhlZt88JYruL3BwuxUZxBC8GaacBrIv6R95Zt91X7X%2BnO6rq6PVor%2F9vGZqfxijmB2ct8b7FCIC4eJaMAmFEWvv1MSKY7ngjVr52zTKgx%2Ba5qDxllfDtxz97%2BjqW6YAse4iPhDEo7GcKjBcExRYIsm0xuS6569JURGEpVSJ4bNArJc%2FbqAyYeY6Ge2iuRahh%2FXzXBaW7m8t2Yj5cQw0KTSuuMDHKEiqSqoZ3aKJmn05IxSckBRTNMX1lBBGGZZDzOtvkfSPIR0MSXPYMZE4KlOwaPlMSyQ8gSHSDVqvxoKUnXsVwuLPS%2B4NiiKC%2Ft51BEF1XK%2BaIQ2I1UOt3A1ASnZ2pC726SYCbzAyTh40h8b3I63WZGvW6%2F6aJUEYOchiPXP%2BHozizvnb8Ca9oUQKvCEjhMrJCl%2BaIk106aDxGplfW3IvcNWOrsCa7tWy1rt7ZqrN32w72I6n0S9Sqi7klv13P%2Fjqj7y7F%2F5nIMUUSbHbPtmlmcv%2BzrAddFVHq8qQrouXzcYn9II269CWDljn9YfZ%2FZ5%2BwM2HxOQmxFeAmXwgohhNM8gZFPURZxRqJpzlkOxCKSVjdSH9vRcqNLrO8Y8uP7pvo8HGHFdeJjG1XwKT4XiE%2FP3l%2Fcu2dphuEo8E44OqBiN9MH70x92A6nO%2Bh0R5JmRV5ybk7WsiB2k9xGwQNSQtLtIYm%2BjkgawyQomcFfRCnB0VRgigsCqvqkdySSqADzlEDpyY4J5sDF6QgXb6AMVrGM77vlr8irzwF6nrmXcPste4nAvxOdXfOT7sd48tPIJMxQXCjhCjKyui%2FKKYmirUq0neE0laON3Vp5Wk6fLk6QGzQT5Pmm2jpey0GNf6%2BPMq%2F%2FKbfXyG21Jbv2o8zv%2Fb8fZVoWjsltM%2B8njkTNk84W8l6d3yu4p2d8invB5dyDZn3KXWao%2FmeBN%2F4P"></iframe>
+</section>
+<section data-transition="none slide-out">
+    <h2>GraphQL Backend</h2>
+    <iframe frameborder="0" style="width:100%;height:400px;" src="https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#R7VjbcuI4EP0aHsflGxAeuYTZB7Y2W9ma2XmihC1sLbKlkmUw%2Bfpt2ZLxBRIygZmXUJXYfSTLUnef07IG3jwpvgrE4z9ZiOnAtcNi4C0Grus82A5cFHLUCPwqJBIk1NgJeCYvWIO2RnMS4qzVUTJGJeFtMGBpigPZwpAQ7NDutmW0%2FVaOItwDngNE%2B%2Bh3Esq4Qh%2Fc8Qn%2FA5MoNm92RpOqJUGms15JFqOQHRqQ9zjw5oIxWd0lxRxT5T3jl%2Bq55YXWemICp%2FKaB6YFd9bfEONfA5e%2BfP82d8b5Fz3KHtFcL1hPVh6NB2DeXN0GR0rSEIuBNzvEROJnjgKFHyDygMUyoWA5cLthOXQMV5saQMEuEgr9K5cwCtZ4JgXb1X71AdHTwULi4uI6ndp7kHeYJViKI3TRD4xNhumUcyfDyj6c4ufYOihxM3YmUkjnTFSPfXIr3GjPvsPLvtPzKg4hzbTJhIxZxFJEH0%2FoTFRehHYbrFOfFWNc%2B%2B8%2FLOVRcwblkrXDgAsi%2F1X3lm1PtP1DDWcNXWMvCj1%2BaRwbxhMWBFav4l1imURCThWjANhQFuz%2BiUlqGpaEmtduWSr1nHxX23NGmSgX7tnlrw618sPrgQa3sVwE%2BBX%2Fjs4nhMAUSbJvj38uuPrRJ0bgzXUiee6ok0id%2FICFR1jqpzopUk%2Fj57Nm9DY3uXo3Fo97cFlmSGV0Rjk5RFlc51AjNyrmmbCkTFFyRtEG0yeWEUlYqhiP0zL%2BM8VHApq46nTYMClZ0ugwpSRSDVKl6Axpqx7HSElSRKpcWOglF9iiiFf9t5BElzPlQ6IwsluhdIajviY4474mjO8mCf1g%2FgJJ%2BG0kvjk5nWE7ot5w0h6iEo0eOXsDuf4bA92Z5ePrK7ChTQa0yiyJg9gKWMLzilyNMF8i0lnW34rcN2Cp0xZcz%2FatM7Xb9GrVbvvhXkT1Pon6IaJ2pHfouT9H1G459r3ryjF4ER0b3cqamV1f9s2ET0lUjXhTFTCfO7%2Bu2F%2FSiFtvAli145%2FX32f2NTsDtt2SAFsh3sMlswJw4ZrHMPM1SkPBSLjmgnEgFlG0upH62I6RG5NiE6cnP77fV5%2BHV1jxMfGxe1nwKT7vEJ%2Bx3S3uw6s0ozfQyHtjoAsqdjN98K7Uh3I6w9lguFA0y3jFuS0pVEI0g3yOghekhCTlIYm5LkgSwSIo2cB%2FRCnB4VpiijMCqro0OxJFVIBFQiD1VMMzFkDP9QJnO1AGK9tH993y1%2BQ1n29jr7%2BXcCdn9hIj%2F0509iafdP4InX3nRpt%2Bf%2Fx7N%2F2miFyz6zfse7P%2BlpV7Vh%2B1NSK3LX%2BXt%2FJdmShfOTVoQwIWsZTq4HWqPOIuc04ZCq0D2ZEEhwRZTChlUDZXdiUHCUsV%2F2WcJ0oxHPUHXz3L8sj479V6BflcyoG7hN0WL750GyyeRrfRBLcbd9u%2B%2BgvDgO9QBTBP57tV7pyOyb3H%2FwE%3D"></iframe>
 </section>
