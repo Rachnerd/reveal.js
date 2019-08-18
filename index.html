@@ -26,7 +26,11 @@
     <div class="slides">
         <!--<section data-markdown="presentation.md" data-separator="^\r?\n-&#45;&#45;\r?\n$" data-separator-vertical="^\r?\n&#45;&#45;\r?\n$" data-separator-notes="^Note:"></section>-->
         <section data-external="pages/intro.html"></section>
-        <section data-external="pages/rest.html"></section>
+        <section data-external="pages/data-model.html"></section>
+        <section data-external="pages/backend.html"></section>
+        <section data-external="pages/apollo.html"></section>
+        <section data-external="pages/frontend.html"></section>
+        <section data-external="pages/microservice.html"></section>
     </div>
 </div>
 <style>
@@ -39,7 +43,48 @@
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 
+<style>
+    .live-example {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+    .live-example__example {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        overflow-y: auto;
+        height: 100%;
+    }
 
+    .live-example__example iframe {
+        height: 25vh;
+    }
+
+    .live-example__example--scaled-up {
+        transform: scale(1.5);
+    }
+    .live-example__example--scaled-up-slight {
+        transform: scale(1.2);
+    }
+    .live-example__example--full-width iframe {
+        width: 100%;
+    }
+    .live-example__example--full-screen {
+        height: 60vh;
+    }
+    .live-example__example--full-screen iframe {
+        width: 100%;
+        height: 100%;
+    }
+    section {
+        /*flex: 1;*/
+        flex-direction: column;
+    }
+</style>
 <script>
     // More info about config & dependencies:
     // - https://github.com/hakimel/reveal.js#configuration
@@ -65,13 +110,28 @@
         ]
     });
 
-    function scrollBottom(event) {
-        const scrollIframeId = event.currentSlide.getAttribute("data-scroll-iframe");
-        if (scrollIframeId) {
-            document.getElementById(scrollIframeId).contentWindow.postMessage('scroll-down', '*')
+    let currentSlide;
 
+    function scrollBottom(event) {
+        currentSlide = event.currentSlide;
+        const scrollIframeClassName = currentSlide.getAttribute("data-scroll-iframe");
+        if (scrollIframeClassName) {
+            currentSlide.getElementsByClassName(scrollIframeClassName)[0].contentWindow.postMessage('scroll-down', '*');
         }
     }
+
+    window.onkeypress = function (event) {
+        if(event.key === "r") {
+            Array.from(currentSlide.getElementsByTagName("iframe")).forEach(frame => {
+                const old = frame.src;
+                frame.src = "";
+                setTimeout(() => {
+                    frame.src = old;
+                }, 0)
+            });
+            console.log(Array.from(currentSlide.getElementsByTagName("iframe")))
+        }
+    };
 
     Reveal.addEventListener('slidechanged', event => {
         scrollBottom(event);
@@ -81,6 +141,7 @@
             scrollBottom(event);
         }, 2000);
     });
+
 </script>
 </body>
 </html>
