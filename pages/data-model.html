@@ -1,10 +1,13 @@
 <section>
-    <h1>Review site</h1>
+    <h1>Webshop</h1>
+    <aside class="notes">
+        Let's look at some limited functionality of a webshop.
+    </aside>
 </section>
 <section data-transition="slide-in fade-out">
-    <div class="live-example">
-        <div class="live-example__example live-example__example--scaled-up">
-            <iframe src="http://localhost:3000?no-reviews"></iframe>
+    <div class="container">
+        <div class="container__content live-example__example--full-width">
+            <iframe style="height: 500px" src="http://localhost:3000?no-reviews"></iframe>
         </div>
     </div>
     <aside class="notes">
@@ -12,9 +15,9 @@
     </aside>
 </section>
 <section data-transition="none slide-out">
-    <div class="live-example">
-        <div class="live-example__example live-example__example--scaled-up">
-            <iframe class="reviewsExample" src="http://localhost:3000"></iframe>
+    <div class="container">
+        <div class="container__content live-example__example--full-width">
+            <iframe style="height: 500px"  class="reviewsExample" src="http://localhost:3000"></iframe>
         </div>
     </div>
     <aside class="notes">
@@ -23,10 +26,9 @@
 </section>
 
 <section>
-    <div class="live-example">
-        <iframe frameborder="0" style="width:100%;height:300px;"
-                src="https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio#R7Vpbb5swFP41eczEJZD0sUnapmo7TYmmdnuZ3OCAV2Mj49z263cMJoQCTauFZFKRIhF%2FHN%2FO95njY%2BjYo3BzI1AUPHAP045leJuOPe5YlnlhXMBFIVuNmGYvRXxBvBQzcmBG%2FmBtmKFL4uFYYykkOaeSREVwzhnDc1nAkBB8XTRbcOoVgAj5uATM5oiW0UfiySBFB1Y%2FxyeY%2BEHWs%2BnqGYcoM9YziQPk8fUeZF917JHgXKb%2Fws0IU%2BW9ol%2Bua%2B7uBiYwk%2B%2BpYE3ix%2B5jd%2FzEL%2B%2FCcLIdP%2F3qdjM2Vogu9YxvJQ71iOU2c0O8JiFFDErDBWdypu8YUJ4HhHr3aMuXahixRPOXrDQMuCB%2FwB5RuGUCALeF1CxbrmqNUDrilAsAGE86yCvNVGO6G4FjqPYtm675CnpAm4LhPYplNkBOKYpi8pwMWVUMkfAJG3IpeaiNyt7UDl5hIfFmD9LevcE8xFJswUTfdTTRWuqWqTWyznVjZjbBnmYsY6D1qrXq75re9TYFbSPmwwx23fVedWcbpe7cqt7cYmeISiwYknjIl8yL9yUEf%2FbmmUOJsD4iMqckso411LUu4cqW4TMWJdGB32WiGcFf8CuRVOgGUeIzKFK8UNUUcQQW8qWGJY9UYxGaE%2BbfJzbjXo5MtYsUxKHugiaLNSCeh5mSFZdIoued7CNOmEx86AzhB54eGV%2BcjgMDH0HZzMvwU%2BZCjjiDuSCSKAyDQNdYibRCe2%2Bv1cOK3Ba5PqhAt16ABTF8mHm3hnmGQpxyDx4B77fcH5t7xzo39%2F0a7iGezwWJJOGsKAEYiW3mD%2BNWDcdTQ39wbjVc1MWAMNmBtY%2BC5sg3jd7p2L92Xr7iJ3c2%2BCG7w7ub22gS97pmDfkIJgH0T5FUxLd7gSZFULE%2FbEwEImDOldddY7Fa%2FJ7d9W335219QBB4RbBK1BT%2F06SQOHL8yVVQIvfdwqhXgXPCLWG1CuoCQQyVYeEnIvgef%2FpHQBPkD064J6wkv5wIVjL9SU4bDlD89mlDKf%2BvCvK9CnJ3u4Gjs1uX7LVp%2FvvXdf2y%2BVCWX0V8Y6u67oneJvkNM1%2BV45%2BUebtuY99mdU1zX5XRn5R70y5xr%2FfubTj%2F93BuZ00cDOdZXnd8gsvvhtp4fpSVnS6d%2Fzeg176wqT26bSVwXAmcPbLXvrkR7Vld4%2ByfPbZn3yyUD2yXMuDtIU2D3Fce1h%2BJfCjm35ukb%2Ffzz3bsq78%3D"></iframe>
-
+    <h4>Data model</h4>
+    <div class="container">
+        <iframe frameborder="0" style="width:100%;height:500px;" src="https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=data-req.drawio#R7Zpbb5swFMc%2FTR4zcQmEPjZJb2o7TY2mdnuZHDDBq7GRcZpkn34HMCQUSJe2IZ2KFCXx3%2Ffjn%2BH4QM8ch6sLgaLglnuY9gzNW%2FXMSc8wbMOE70RYK8HUM2EuiJdJ2kaYkj84E%2FVcXRAPx0rLJMk5lSQqiy5nDLuypCEh%2BLJczOfUKwkRmuOKMHURrar3xJNBpjrGcKNfYjIP8p51%2ByTLCVFeWM0kDpDHl1uSedYzx4Jzmf0LV2NME9uV7XLekFsMTGAm%2F6WCcRnf9%2B%2F7kwd%2Beh2Gl%2BvJw69%2BXx9kzTwhulAzvpI4VCOW69wM8ZKEFDFIjXzO5FTlaJB2A0K9G7Tmi2QYsUTuY54aBVyQP1AeUcjSQYBsIdUqG3bSGqF0zCkXaT%2Bmh7Dju6Wa06RF1ZfAMdT9ls9ZfybdolWp4A2KZT5KTimKYjJLx51UDJGYEzbiUvJQFYql4I94azi26%2BCZDzlVYyv7P2Eh8WpLUsa%2FwDzEUqyhiMq1FAdqIxi6Qmi5wUrPywRbSBmao3BWKM%2BLpove7gB9xOYwt6K7wbPuTK3SnV3Xm13uDFGJBUMSj%2FiCefE2YfBna54bKeVuHwatCoM9Y6RqncIvW4QzLCpMgt3lzkVrYgtRMmegUewnDSRLSGDHnypZ8ihpNkIuYfObtMxksFHulLESiUNdn6a7OiCeh1mCHpdIolmxPyJOmEytaY3gAzYfa1%2BsngVDGkNa36ThkxQXcswZzAqRlDUMEC9xAnINhbs39ctsrsur%2FiKLdjOKJSz2ZsBuYIChEGcUgEXA%2Bh0Fh6PAMo5NwbCBAnABXEEiSTgrwwAjMXWtMErHxSG4GDrH5uKk6Q4Rpu5bd3loAwNdG7THwbn1%2BBU%2F2FPnh%2ByPri%2Buost40NcbMEAwCQDhDskEgdf4DI4xM%2B06f9TCjjfocKjDocajPBgOImDWmddfYvHk%2F55eD03751Xz7ULgJ4KTk19Cwl2aSA056Xg4IA9Wi05kPQ9Nt4kYKsPFIMXhe7zHZcEbnsw0rYqB72Pb7e4StRg4LXqRtRhUj5O1a95WSKNg5WOENAqkqwTsHdKoBBnqPIRBzdoXrsS7L37TOfKVsYTPdAHYuZneFEqoQ%2BBg27%2FpJvDqSELHwL4M1AUSWmXAbDopvP7A2FGwLwV1YYNWKdDNCgXqMHC0xxv58eFj%2BALFKecAvoCZN%2FGiL5CfI99%2F%2FasPt97kDHymQ%2BHuDfX%2FeAOND5caQ8odDIeC4ehuQeNTJtFFDlvk4OiOQf5KRjWQvJAB7wJFrVBQ%2BzjhnTCA5ObFmuw9hc3bSebZXw%3D%3D"></iframe>
     </div>
     <aside class="notes">
         Test
