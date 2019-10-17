@@ -1,0 +1,35 @@
+section {
+    /*flex: 1;*/
+    flex-direction: column;
+}
+
+img  {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.image--medium {
+    width: 5em;
+}
+
+.image--large {
+    width: 10em;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.container__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.divider {
+    width: 2em;
+}

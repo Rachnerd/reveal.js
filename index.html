@@ -11,6 +11,10 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/graphql.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -26,69 +30,22 @@
     <div class="slides">
         <!--<section data-markdown="presentation.md" data-separator="^\r?\n-&#45;&#45;\r?\n$" data-separator-vertical="^\r?\n&#45;&#45;\r?\n$" data-separator-notes="^Note:"></section>-->
         <section data-external="pages/intro.html"></section>
-        <section data-external="pages/data-model.html"></section>
-        <section data-external="pages/backend.html"></section>
-        <section data-external="pages/apollo.html"></section>
-        <section data-external="pages/frontend.html"></section>
-        <section data-external="pages/microservice.html"></section>
+        <section data-external="pages/graphql.html"></section>
+        <section data-external="pages/api.html"></section>
+        <section data-external="pages/middleware.html"></section>
+        <section data-external="pages/frontend2.html"></section>
+        <section data-external="pages/microservices.html"></section>
+        <!--        <section data-external="pages/frontend.html"></section>-->
+        <!--        <section data-external="pages/data-model.html"></section>-->
+        <!--        <section data-external="pages/backend.html"></section>-->
+        <!--        <section data-external="pages/apollo.html"></section>-->
+        <!--        <section data-external="pages/microservice.html"></section>-->
     </div>
-    <img  style="width: 4em; position: fixed; top: 1em; right: 1em;" src="./assets/open-value-white.jpeg" />
+    <img style="width: 4em; position: fixed; top: 1em; right: 1em;" src="./assets/open-value-white.jpeg"/>
 </div>
-<style>
-    iframe {
-
-        /*border: 1px solid black !important;*/
-        /*border-radius: 10px;*/
-    }
-</style>
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 
-<style>
-    .container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-    }
-    .container__content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        flex: 1;
-        overflow-y: auto;
-        height: 100%;
-    }
-
-    .container__content iframe {
-        height: 25vh;
-    }
-
-    .live-example__example--scaled-up {
-        transform: scale(1.5);
-    }
-    .live-example__example--scaled-up-slight {
-        transform: scale(1.2);
-    }
-    .live-example__example--full-width iframe {
-        width: 100%;
-    }
-    .live-example__example--full-screen {
-    }
-    .live-example__example--full-screen iframe {
-        width: 100%;
-        height: 100%;
-    }
-    section {
-        /*flex: 1;*/
-        flex-direction: column;
-    }
-    img {
-        border: none !important;
-        box-shadow: none !important;
-    }
-</style>
 <script>
     // More info about config & dependencies:
     // - https://github.com/hakimel/reveal.js#configuration
@@ -109,6 +66,27 @@
             {
                 src: 'plugin/highlight/highlight.js', async: true, callback: function () {
                     hljs.initHighlightingOnLoad();
+                    hljs.registerLanguage("graphql", function (e) {
+                        return {
+                            aliases: ["gql"],
+                            k: {
+                                keyword: "query mutation subscription|10 type input schema directive interface union scalar fragment|10 enum on ...",
+                                literal: "true false null"
+                            },
+                            c: [e.HCM, e.QSM, e.NM, {
+                                cN: "type",
+                                b: "[^\\w][A-Z][a-z]",
+                                e: "\\W",
+                                eE: !0
+                            }, {cN: "literal", b: "[^\\w][A-Z][A-Z]", e: "\\W", eE: !0}, {
+                                cN: "variable",
+                                b: "\\$",
+                                e: "\\W",
+                                eE: !0
+                            }, {cN: "keyword", b: "[.]{2}", e: "\\."}, {cN: "meta", b: "@", e: "\\W", eE: !0}],
+                            i: /([;<']|BEGIN)/
+                        }
+                    });
                 }
             }
         ]
@@ -125,7 +103,7 @@
     }
 
     window.onkeypress = function (event) {
-        if(event.key === "r") {
+        if (event.key === "r") {
             Array.from(currentSlide.getElementsByTagName("iframe")).forEach(frame => {
                 const old = frame.src;
                 frame.src = "";

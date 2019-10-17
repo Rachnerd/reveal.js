@@ -1,0 +1,100 @@
+<section>
+    <h2>Frontend</h2>
+    <aside class="notes">
+        Let's talk frontend for a moment.
+    </aside>
+</section>
+<section>
+    <img src="https://miro.medium.com/max/1838/1*pO4kjXdsOi_ZsS50Py6UNQ.png" style="width: 15em;"/>
+</section>
+
+<!--React-->
+<section>
+    <div class="container">
+        <div style="flex: 4">
+    <pre style="width: 100%;"><code class="hljs graphql" data-trim data-noescape>
+    query ItemById ($id: Int!) {
+      item(id: $id){
+        id
+        name
+      }
+    }
+	</code></pre>
+        </div>
+        <div style="flex: 2">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                 alt="react"/>
+        </div>
+        <div style="flex: 2">
+
+            <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
+        </div>
+    </div>
+    <div class="container">
+        <div style="flex: 8" class="container__content">
+    <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
+        const { data, loading, error } = <mark>useItemByIdQuery</mark>({
+            variables: { id: 1 }
+        });
+
+        if(loading) {
+            return &lt;Loader /&gt;
+        } else if(error) {
+            return &lt;Apology /&gt;
+        } else if(data) {
+            const { item: { id, name } } = data;
+            // ...
+        }
+	</code></pre>
+        </div>
+    </div>
+    <aside class="notes">
+        TypeScript knows exactly which fields are queried.
+    </aside>
+</section>
+<!--Angular-->
+<section>
+    <div class="container">
+        <div style="flex: 4">
+    <pre style="width: 100%;"><code class="hljs graphql" data-trim data-noescape>
+    query ItemById ($id: Int!) {
+      item(id: $id){
+        id
+        name
+      }
+    }
+	</code></pre>
+        </div>
+        <div style="flex: 2;">
+
+            <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" style="width: 160px"/>
+        </div>
+        <div style="flex: 2">
+
+            <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
+        </div>
+    </div>
+    <div class="container">
+        <div style="flex: 8;" class="container__content">
+    <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
+        constructor(private itemByIdGQL: <mark>ItemByIdGQL</mark>) {
+
+        ngOnInit() {
+            this.itemByIdSubscription = this.itemByIdGQL
+                .watch({ id: 1 })
+                .valueChanges
+                .subscribe(({ data, loading, error }) => {
+                    this.loading = loading;
+                    this.item = data ? data.item : undefined;
+                    this.error = error;
+                });
+        }
+        // ..
+	</code></pre>
+        </div>
+    </div>
+    <aside class="notes">
+        TypeScript knows exactly which fields are queried.
+    </aside>
+</section>

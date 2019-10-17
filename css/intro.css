@@ -1,0 +1,12 @@
+.intro p {
+    margin: 0;
+}
+
+.intro .image {
+    align-self: center;
+    width: 5em;
+}
+
+.intro__role {
+    font-size: .8em !important;
+}

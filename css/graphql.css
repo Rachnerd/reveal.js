@@ -1,0 +1,56 @@
+.container__graphql {
+
+}
+
+.container__graphql .image {
+    width: 10em;
+    align-self: center;
+}
+
+.container__graphql-website iframe {
+    width: 100%;
+    min-height: 10em;
+}
+
+.container__graphql-vs-rest {
+    flex: 1;
+    justify-self: center;
+    flex-direction: row;
+}
+
+
+.container__graphql-vs-rest .image {
+    height: 4em;
+    margin: 0;
+}
+
+
+.container__graphql-vs-rest h1 {
+    height: 2em;
+    align-self: center;
+    font-size: 2em;
+    margin: 0;
+}
+
+
+.container__graphql-vs-rest ul {
+    width: 100%;
+}
+
+.container__graphql-vs-rest * {
+    flex: 1;
+}
+
+.container__graphql-schema iframe {
+    flex: 1;
+    height: 10em;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.container__graphql-schema__code {
+    flex: 1;
+}
+
+.container__graphql-resolvers {
+}

@@ -1,0 +1,85 @@
+<section class="container__graphql">
+    <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg"/>
+</section>
+<section class="container__graphql-website">
+    <iframe src="https://graphql.org/"></iframe>
+</section>
+<section class="container container__graphql-vs-rest">
+    <div>
+        <h1>REST</h1>
+        <ul>
+            <li>Many endpoints</li>
+            <li>Full resources</li>
+            <li>Versioning</li>
+        </ul>
+    </div>
+    <h3>VS</h3>
+    <div>
+        <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg"/>
+        <ul>
+            <li>One endpoint</li>
+            <li>No over-fetching</li>
+            <li>No versioning</li>
+        </ul>
+    </div>
+</section>
+<section class="container__graphql-schema">
+    <h2>Schema</h2>
+    <div class="container">
+        <div class="container__graphql-schema__code">
+            <iframe name="code-example"
+                    src="data:text/html;charset=utf-8,%3Cbody%3E%3Cscript%20src%3D%22https%3A%2F%2Fgist.github.com%2FRachnerd%2Fb1df2f4c40f8bfa12210c8953eba8018.js%22%3E%3C%2Fscript%3E%3C%2Fbody%3E">
+            </iframe>
+        </div>
+        <div class="container__graphql-schema__code">
+            <iframe src="http://localhost:8000">PLAYGROUND</iframe>
+        </div>
+    </div>
+</section>
+<!--type Query {-->
+<!--item(id: ID!): Item-->
+<!--}-->
+
+<!--type Item {-->
+<!--id: ID!-->
+<!--name: String!-->
+<!--description: String!-->
+<!--image: String!-->
+<!--averageRating: Float!-->
+<!--reviews: [Review!]!-->
+<!--seller: User!-->
+<!--}-->
+
+<!--type User {-->
+<!--id: ID!-->
+<!--name: String!-->
+<!--image: String!-->
+<!--}-->
+
+<!--type Review {-->
+<!--id: ID!-->
+<!--description: String!-->
+<!--rating: Float!-->
+<!--author: User!-->
+<!--}-->
+<section class="container__graphql-resolvers">
+    <h2>Resolving types</h2>
+</section>
+
+<section>
+    <h2>Explicit</h2>
+    <h4>Union</h4>
+</section>
+
+<section>
+    <h2>Tooling</h2>
+
+</section>
+
+<section>
+    <h2>Graphql code generator</h2>
+</section>
+
+<section class="container__graphql">
+    <h2>REST?</h2>
+</section>
