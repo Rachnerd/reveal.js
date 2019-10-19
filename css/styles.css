@@ -3,7 +3,12 @@ section {
     flex-direction: column;
 }
 
-img  {
+pre {
+    height: 100%;
+    box-shadow: none !important;
+}
+
+img {
     border: none !important;
     box-shadow: none !important;
     background: transparent !important;
@@ -31,5 +36,8 @@ img  {
 }
 
 .divider {
-    width: 2em;
+    width: 1px;
+    margin: 1em;
+    background-color: black;
+    align-self: stretch;
 }

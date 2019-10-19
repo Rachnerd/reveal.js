@@ -15,18 +15,28 @@
 .container__graphql-vs-rest {
     flex: 1;
     justify-self: center;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container__graphql-vs-rest > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container__graphql-vs-rest ul {
+    padding-left: 2em;
 }
 
 
 .container__graphql-vs-rest .image {
-    height: 4em;
-    margin: 0;
+    width: 3em;
+    margin-bottom: 1em;
 }
 
 
 .container__graphql-vs-rest h1 {
-    height: 2em;
     align-self: center;
     font-size: 2em;
     margin: 0;
@@ -45,7 +55,6 @@
     flex: 1;
     height: 10em;
     width: 100%;
-    border: 1px solid black;
     border-radius: 12px;
 }
 .container__graphql-schema__code {

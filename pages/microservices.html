@@ -1,7 +1,64 @@
 <section>
-    <h2>Microservices</h2>
+    <img src="https://miro.medium.com/max/1000/1*IF6Inba771Jh_nwpBz4_3A.png"/>
 </section>
 
 <section>
-    <h2>Federation</h2>
+    <img src="https://miro.medium.com/max/1200/1*x67g2gg-OCDaNVdqta0o8Q.png"/>
+</section>
+
+<section>
+    <h4>Decentralize the schema</h4>
+
+    <div style="display: flex; justify-content: space-around">
+        <div>
+
+            <p>ItemMS</p>
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Item @key(fields: "id") {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+}
+            </code></pre>
+        </div>
+        <div class="divider"></div>
+        <div>
+
+            <p>ReviewMS</p>
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Review @key(fields: "userId") {
+    id: ID!
+    userId: ID!
+    description: String!
+    rating: Float!
+}
+
+extend type Item @key(fields: "id"){
+    id: ID! @external
+    averageRating: Float!
+    reviews: [Review!]!
+}
+            </code></pre>
+        </div>
+        <div class="divider"></div>
+        <div>
+
+            <p>UserMS</p>
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type User @key(fields: "id") {
+    id: ID!
+    name: String!
+    image: String!
+}
+
+extend type Item @key(fields: "userId") {
+    userId: ID! @external
+    seller: User!
+}
+
+extend type Review @key(fields: "userId") {
+    userId: ID! @external
+    author: User!
+}
+            </code></pre>
+        </div>
+    </div>
 </section>

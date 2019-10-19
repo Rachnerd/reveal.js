@@ -1,13 +1,90 @@
-<section>
-    <h2>Frontend</h2>
+<section style="display: flex; justify-content: center; ; align-items: center">
+    <img src="https://miro.medium.com/max/1838/1*pO4kjXdsOi_ZsS50Py6UNQ.png" style="width: 15em;"/>
     <aside class="notes">
         Let's talk frontend for a moment.
     </aside>
 </section>
-<section>
-    <img src="https://miro.medium.com/max/1838/1*pO4kjXdsOi_ZsS50Py6UNQ.png" style="width: 15em;"/>
+
+<section style="display: flex; justify-content: center; ; align-items: center">
+    <img src="https://www.apollographql.com/docs/apollo-server/ee7fbac9c0ca5b1dd6aef886bb695e63/index-diagram.svg"
+         style="width: 15em;"/>
+    <aside class="notes">
+    </aside>
 </section>
 
+<section>
+    <h2>Apollo client</h2>
+    <div style="display: flex; justify-content: center; align-items: center">
+
+        <div>
+            <img src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/216/square_480/apollo-seeklogo.com_%281%29.png"
+                 style="width: 4em;"/>
+        </div>
+        <div style="width: 100px;"></div>
+        <div>
+            <ul>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Vue</li>
+                <li>Meteor</li>
+                <li>Vue</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div>
+        <img src="assets/apolloclient.png"/>
+    </div>
+
+</section>
+
+<!--React-->
+<section>
+    <div class="container">
+        <div style="flex: 4">
+    <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
+    export const ITEM_BY_ID_QUERY = gql`
+        query ItemById ($id: Int!) {
+              item(id: $id){
+                id
+                name
+              }
+        }
+    `;
+	</code></pre>
+        </div>
+        <div style="flex: 2">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                 alt="react"/>
+        </div>
+    </div>
+    <div class="container">
+        <div style="flex: 8" class="container__content">
+    <pre style="width: 100%; margin: 0"><code class="hljs typescript" data-trim data-noescape>
+        type ItemQuery = Record&lt;"item", Pick&lt;GQLItem, "id" | "name"&gt;>;
+
+        const { data, loading, error } = useQuery&lt;ItemQuery&gt;(ITEM_BY_ID_QUERY, {
+            variables: { id: 1 }
+        });
+
+        if(loading) {
+            return &lt;Loader /&gt;
+        } else if(error) {
+            return &lt;Apology /&gt;
+        } else if(data) {
+            const { item: { id, name } } = data;
+            // ...
+        }
+	</code></pre>
+        </div>
+    </div>
+    <aside class="notes">
+        TypeScript knows exactly which fields are queried.
+    </aside>
+</section>
 <!--React-->
 <section>
     <div class="container">
@@ -23,12 +100,12 @@
         </div>
         <div style="flex: 2">
 
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
-                 alt="react"/>
+            <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
         </div>
         <div style="flex: 2">
 
-            <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                 alt="react"/>
         </div>
     </div>
     <div class="container">
@@ -66,13 +143,13 @@
     }
 	</code></pre>
         </div>
-        <div style="flex: 2;">
-
-            <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" style="width: 160px"/>
-        </div>
         <div style="flex: 2">
 
             <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
+        </div>
+        <div style="flex: 2;">
+
+            <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" style="width: 160px"/>
         </div>
     </div>
     <div class="container">
@@ -97,4 +174,29 @@
     <aside class="notes">
         TypeScript knows exactly which fields are queried.
     </aside>
+</section>
+<section>
+    <h2>Fetch policies</h2>
+    <div style="display:flex; align-items: center">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                 alt="react"/>
+        </div>
+        <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
+        const { data, loading, error } = useItemByIdQuery({
+            variables: { id: 1 },
+            fetchPolicy: 'cache-first',
+            // cache-first (default)
+            // cache-and-network
+            // network-only
+            // cache-only
+            // no-cache
+        });
+	</code></pre>
+    </div>
+</section>
+
+<section>
+    <h2>Local state?</h2>
+
 </section>
