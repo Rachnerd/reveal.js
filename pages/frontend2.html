@@ -27,7 +27,6 @@
                 <li>Angular</li>
                 <li>Vue</li>
                 <li>Meteor</li>
-                <li>Vue</li>
             </ul>
         </div>
     </div>
@@ -38,6 +37,10 @@
         <img src="assets/apolloclient.png"/>
     </div>
 
+</section>
+
+<section>
+    <h2>Queries</h2>
 </section>
 
 <!--React-->
@@ -55,13 +58,14 @@
     `;
 	</code></pre>
         </div>
-        <div style="flex: 2">
-
+        <div style="flex: 2; position: relative">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
                  alt="react"/>
+            <img src="https://miro.medium.com/max/816/1*mn6bOs7s6Qbao15PMNRyOA.png" alt="codegen" width="50"
+                 style="position: absolute; right: 2em; bottom: 1em;"/>
         </div>
     </div>
-    <div class="container">
+    <div class="container fragment">
         <div style="flex: 8" class="container__content">
     <pre style="width: 100%; margin: 0"><code class="hljs typescript" data-trim data-noescape>
         type ItemQuery = Record&lt;"item", Pick&lt;GQLItem, "id" | "name"&gt;>;
@@ -86,11 +90,11 @@
     </aside>
 </section>
 <!--React-->
-<section>
+<section style="z-index: 999;">
     <div class="container">
         <div style="flex: 4">
     <pre style="width: 100%;"><code class="hljs graphql" data-trim data-noescape>
-    query ItemById ($id: Int!) {
+    query <mark>ItemById</mark> ($id: Int!) {
       item(id: $id){
         id
         name
@@ -102,10 +106,12 @@
 
             <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
         </div>
-        <div style="flex: 2">
+        <div style="flex: 2; position: relative; padding-right: 2em">
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
                  alt="react"/>
+            <img src="https://miro.medium.com/max/816/1*mn6bOs7s6Qbao15PMNRyOA.png" alt="codegen" width="30"
+                 style="position: absolute; right: 3.4em; bottom: 1em;"/>
         </div>
     </div>
     <div class="container">
@@ -135,7 +141,7 @@
     <div class="container">
         <div style="flex: 4">
     <pre style="width: 100%;"><code class="hljs graphql" data-trim data-noescape>
-    query ItemById ($id: Int!) {
+    query <mark>ItemById</mark> ($id: Int!) {
       item(id: $id){
         id
         name
@@ -147,7 +153,7 @@
 
             <img src="https://graphql-code-generator.com/img/gql-codegen-cover.png" alt="codegen" width="200"/>
         </div>
-        <div style="flex: 2;">
+        <div style="flex: 2; padding-right: 2em">
 
             <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" style="width: 160px"/>
         </div>
@@ -175,6 +181,14 @@
         TypeScript knows exactly which fields are queried.
     </aside>
 </section>
+
+<section>
+    <h2>REACT EXAMPLE</h2>
+</section>
+
+<section>
+    <h2>Caching</h2>
+</section>
 <section>
     <h2>Fetch policies</h2>
     <div style="display:flex; align-items: center">
@@ -185,8 +199,7 @@
         <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
         const { data, loading, error } = useItemByIdQuery({
             variables: { id: 1 },
-            fetchPolicy: 'cache-first',
-            // cache-first (default)
+            fetchPolicy: 'cache-first', // (default)
             // cache-and-network
             // network-only
             // cache-only
@@ -195,8 +208,67 @@
 	</code></pre>
     </div>
 </section>
+<section>
+    <h2>Stale data</h2>
+    <div style="display:flex; align-items: center">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                 alt="react"/>
+        </div>
+        <pre style="width: 100%;"><code class="hljs typescript" data-trim data-noescape>
+        const [createItem, { data, ... }] = useCreateItemMutation();
+
+        await createItem({
+            variables: {
+                // ...
+            },
+            refetchQueries: [
+                "AllItems",
+                // {
+                //     query: AllItemsDocument
+                // }
+            ],
+            awaitRefetchQueries: true
+        })
+	</code></pre>
+    </div>
+</section>
 
 <section>
-    <h2>Local state?</h2>
 
+    <h2>Local state</h2>
+</section>
+<section>
+    <div style="display: flex">
+    <pre style="width: 100%; font-size: .5em;"><code class="hljs graphql" data-noescape>type Query {
+    selectedItems: [ID!]! @client
+}
+
+type Item {
+    isSelected: Boolean! @client
+}
+</code></pre>
+        <pre class="fragment" style="width: 100%; font-size: .5em;"><code class="hljs typescript" data-noescape>const cache = new InMemoryCache();
+cache.writeData({
+  data: {
+    selectedItems: [],
+  },
+});
+</code></pre>
+    </div>
+
+    <pre style="width: 100%; font-size: .5em" class="fragment"><code class="hljs typescript" style="overflow: hidden"
+                                                                     data-noescape><span style="opacity: .4">const client = new ApolloClient({</span>
+  cache,
+  resolvers: {
+    Item: {
+      isSelected: ({ id }, _, { cache }) => {
+        const { selectedItems } = cache.readQuery({
+            query: gql`query GetCartItems { selectedItems @client }`
+        });
+        return selectedItems.includes(id);
+      },
+    },
+  },<span style="opacity: .4">
+});</span></code></pre>
 </section>

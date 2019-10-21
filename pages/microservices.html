@@ -12,8 +12,8 @@
     <div style="display: flex; justify-content: space-around">
         <div>
 
-            <p>ItemMS</p>
-            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Item @key(fields: "id") {
+<!--            <p>ItemMS</p>-->
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Item {
     id: ID!
     name: String!
     description: String!
@@ -24,41 +24,112 @@
         <div class="divider"></div>
         <div>
 
-            <p>ReviewMS</p>
-            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Review @key(fields: "userId") {
+<!--            <p>ReviewMS</p>-->
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type Review {
     id: ID!
     userId: ID!
     description: String!
     rating: Float!
 }
 
-extend type Item @key(fields: "id"){
-    id: ID! @external
+extend type Item {
     averageRating: Float!
     reviews: [Review!]!
 }
             </code></pre>
         </div>
+<!--        <div>-->
+
+<!--            <p>UserMS</p>-->
+<!--            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type User @key(fields: "id") {-->
+<!--    id: ID!-->
+<!--    name: String!-->
+<!--    image: String!-->
+<!--}-->
+
+<!--extend type Item @key(fields: "userId") {-->
+<!--    userId: ID! @external-->
+<!--    seller: User!-->
+<!--}-->
+
+<!--extend type Review @key(fields: "userId") {-->
+<!--    userId: ID! @external-->
+<!--    author: User!-->
+<!--}-->
+<!--            </code></pre>-->
+<!--        </div>-->
+    </div>
+</section>
+
+<section>
+    <h4>Decentralize the schema</h4>
+
+    <div style="display: flex; justify-content: space-around">
+        <div>
+
+<!--            <p>ItemMS</p>-->
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim><span style="opacity: .4">type Item </span>@key(fields: "id")<span style="opacity: .4"> {
+    id: ID!
+    name: String!
+    description: String!
+    image: String!
+}</span>
+            </code></pre>
+        </div>
         <div class="divider"></div>
         <div>
 
-            <p>UserMS</p>
-            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type User @key(fields: "id") {
+<!--            <p>ReviewMS</p>-->
+            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim><span style="opacity: .4">type Review {
     id: ID!
-    name: String!
-    image: String!
+    userId: ID!
+    description: String!
+    rating: Float!
 }
 
-extend type Item @key(fields: "userId") {
-    userId: ID! @external
-    seller: User!
-}
-
-extend type Review @key(fields: "userId") {
-    userId: ID! @external
-    author: User!
-}
+extend type Item </span>@key(fields: "id")<span style="opacity: .4">{</span>
+    id: ID! @external<span style="opacity: .4">
+    averageRating: Float!
+    reviews: [Review!]!
+}</span>
             </code></pre>
         </div>
+
+<!--        <div>-->
+
+<!--            <p>UserMS</p>-->
+<!--            <pre style="width: 100%; font-size: .4em;"><code class="hljs graphql" data-noescape data-trim>type User @key(fields: "id") {-->
+<!--    id: ID!-->
+<!--    name: String!-->
+<!--    image: String!-->
+<!--}-->
+
+<!--extend type Item @key(fields: "userId") {-->
+<!--    userId: ID! @external-->
+<!--    seller: User!-->
+<!--}-->
+
+<!--extend type Review @key(fields: "userId") {-->
+<!--    userId: ID! @external-->
+<!--    author: User!-->
+<!--}-->
+<!--            </code></pre>-->
+<!--        </div>-->
     </div>
+</section>
+
+<section>
+    <h2>Gateway</h2>
+    <pre><code class="hljs typescript" data-noescape data-trim>
+            const gateway = new ApolloGateway({
+                serviceList: [
+                    { name: 'items', url: 'http://localhost:4001' },
+                    { name: 'reviews', url: 'http://localhost:4002' },
+                    { name: 'users', url: 'http://localhost:4003' }
+                ]
+            });
+
+            const server = new ApolloServer({ gateway });
+            server.listen();
+        </code></pre>
 </section>
