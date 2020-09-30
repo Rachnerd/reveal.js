@@ -69,10 +69,38 @@
                     }
                 </style>
             </section>
+            <section class="reload-times">
+                <h2>Average reload times</h2>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>Build</td>
+                        <td>Rebuild</td>
+                        <td>Load page</td>
+                    </tr>
+                    <tr>
+                        <td>RBO</td>
+                        <td>3-5 min</td>
+                        <td>1-2 min</td>
+                        <td>5+ sec</td>
+                    </tr>
+                    <tr>
+                        <td>Global-sites</td>
+                        <td>1-2 min</td>
+                        <td>20-40 sec</td>
+                        <td>5+ sec</td>
+                    </tr>
+                </table>
+                <style>
+                    .rbo img {
+                        border: 2px solid black
+                    }
+                </style>
+            </section>
             <section>
                 <h2>Booting components</h2>
                 <div style="display: flex">
-  <pre class="typescript" style="font-size: 0.2em !important"><code data-trim>
+  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim>
 // article.component.ts
 @Component({
   selector: 'senses-article',
@@ -91,7 +119,8 @@ export class ArticleComponent implements OnInit {
 
   // ...
 }
-  </code></pre><div style="width: 20px"></div>
+  </code></pre>
+                    <div style="width: 20px"></div>
                     <pre class="typescript" style="font-size: 0.2em !important"><code data-trim data-noescape>
 // article.stories.ts
 const metaInfo: Meta = {
@@ -134,10 +163,10 @@ export const Article = (): IStory => ({
                 </div>
             </section>
             <section>
-                <h2>Booting components</h2>
+                <h2>Senses module helper</h2>
                 <div style="display: flex">
-  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim>
-export const withSensesDefaults = ({
+  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const <mark>withSensesDefaults</mark> = ({
   imports = [],
   providers = [],
   schemas = [],
@@ -163,14 +192,15 @@ export const withSensesDefaults = ({
   schemas: [...schemas, CUSTOM_ELEMENTS_SCHEMA],
 });
 
-  </code></pre><div style="width: 20px"></div>
+  </code></pre>
+                    <div style="width: 20px"></div>
                     <pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
 // article.stories.ts
 const metaInfo: Meta = {
   title: 'Global-sites/UI Components/Article',
   decorators: [
     moduleMetadata(
-      withSensesDefaults({
+      <mark>withSensesDefaults</mark>({
         imports: [GlobalSitesUiComponentsModule],
       })
     ),
