@@ -1,39 +1,215 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-markdown="presentation.md" data-separator="^\r?\n---\r?\n$" data-separator-vertical="^\r?\n--\r?\n$" data-separator-notes="^Note:"></section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <img src="assets/storybook.svg" width="60%"/>
+            </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+            <section>
+                <video width="1200" autoplay loop controls>
+                    <source src="https://storybook.js.org/videos/storybook-hero-video-optimized.mp4" type="video/mp4">
+                </video>
+            </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+            <section data-transition="slide-in fade-out">
+                <h2>Why Storybook?</h2>
+                <ul>
+                    <li class="fragment">Bigger apps -> Longer build time</li>
+                    <li class="fragment">Isolated component development</li>
+                    <li class="fragment">Component states visualization</li>
+                    <li class="fragment">Interactive component API</li>
+                    <li class="fragment">Documentation (WIP)</li>
+                </ul>
+            </section>
+            <section data-transition="fade-in slide-out">
+                <h2>Why Storybook?</h2>
+                <ul>
+                    <li>Bigger apps -> Longer build time</li>
+                    <li style="opacity: .2">Isolated component development</li>
+                    <li style="opacity: .2">Component states visualization</li>
+                    <li style="opacity: .2">Interactive component API</li>
+                    <li style="opacity: .2">Documentation (WIP)</li>
+                </ul>
+            </section>
+            <section class="global-sites-comparison">
+                <h2>Global-sites</h2>
+                <div>
+                    <img src="assets/storybook-global-sites-demo.gif"/>
+                </div>
+                <style>
+                    .global-sites-comparison img {
+                        border: 2px solid black
+                    }
+                </style>
+            </section>
+            <section class="rbo">
+                <h2>RBO</h2>
+                <div>
+                    <img src="assets/storybook-rbo-demo.gif"/>
+                </div>
+                <style>
+                    .rbo img {
+                        border: 2px solid black
+                    }
+                </style>
+            </section>
+            <section>
+                <h2>Booting components</h2>
+                <div style="display: flex">
+  <pre class="typescript" style="font-size: 0.2em !important"><code data-trim>
+// article.component.ts
+@Component({
+  selector: 'senses-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.scss'],
+})
+export class ArticleComponent implements OnInit {
+  @Input()
+  data: Article;
+
+  @Input()
+  showHamburger: boolean = false;
+
+  @Output()
+  imageClick = new EventEmitter&lt;Image | RichImage&gt;();
+
+  // ...
+}
+  </code></pre><div style="width: 20px"></div>
+                    <pre class="typescript" style="font-size: 0.2em !important"><code data-trim data-noescape>
+// article.stories.ts
+const metaInfo: Meta = {
+  title: 'Global-sites/UI Components/Article',
+  decorators: [
+    moduleMetadata({
+      declarations: [],
+      imports: [
+        CommonModule,
+        TranslateModule.forRoot(),
+        RouterModule.forRoot([]),
+        GlobalSitesUiComponentsModule,
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        SensesTranslateService,
+        LogCollectorService,
+        {
+          provide: logCollectorIdToken,
+          useValue: 'app-global-sites',
+        },
+        { provide: APP_BASE_HREF, useValue: '/' },
+      ],
+    }),
+  ],
+};
+export default metaInfo;
+
+export const Article = (): IStory => ({
+  propsMeta: {
+    title: 'Article',
+  },
+  component: ArticleComponent,
+  props: {
+    data: ARTICLE_MOCK_DATA,
+    showHamburger: false
+  },
+});
+  </code></pre>
+                </div>
+            </section>
+            <section>
+                <h2>Booting components</h2>
+                <div style="display: flex">
+  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim>
+export const withSensesDefaults = ({
+  imports = [],
+  providers = [],
+  schemas = [],
+  ...metadata
+}: Partial&lt;NgModuleMetadata>): Partial&lt;NgModuleMetadata> => ({
+  ...metadata,
+  imports: [
+    ...imports,
+    CommonModule,
+    TranslateModule.forRoot(),
+    RouterModule.forRoot([]),
+  ],
+  providers: [
+    ...providers,
+    { provide: APP_BASE_HREF, useValue: '/' },
+    LogCollectorService,
+    {
+      provide: logCollectorIdToken,
+      useValue: 'storybook',
+    },
+    SensesTranslateService,
+  ],
+  schemas: [...schemas, CUSTOM_ELEMENTS_SCHEMA],
+});
+
+  </code></pre><div style="width: 20px"></div>
+                    <pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
+// article.stories.ts
+const metaInfo: Meta = {
+  title: 'Global-sites/UI Components/Article',
+  decorators: [
+    moduleMetadata(
+      withSensesDefaults({
+        imports: [GlobalSitesUiComponentsModule],
+      })
+    ),
+  ],
+};
+export default metaInfo;
+
+export const Article = (): IStory => ({
+  propsMeta: {
+    title: 'Article',
+  },
+  component: ArticleComponent,
+  props: {
+    data: ARTICLE_MOCK_DATA,
+    showHamburger: false,
+  },
+});
+
+  </code></pre>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
 </html>
