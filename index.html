@@ -18,6 +18,58 @@
     <div class="slides">
         <section>
             <section>
+                <h1>Developer feedback loop</h1>
+            </section>
+            <section>
+                <h2 style="display: flex; justify-content: center; align-items: center"><img src="assets/openvalue.png" height="200px" style="margin: 0"/><span style="width:20px"></span> Hack&&Hollandia</h2>
+            </section>
+            <section >
+                <div style="display: flex;">
+                    <div style="flex: 1">
+                        <img src="assets/stefan.jpg">
+                        <p style="font-size: .4em">Stefan Kemp (Wayz)</p>
+                    </div>
+                    <div style="flex: 1">
+                        <img src="assets/media-cards-storybook.gif">
+                        <p style="font-size: .4em">Frank Walinga (Googlix)</p>
+                    </div>
+                    <div style="flex: 1">
+                        <img src="assets/rachel.png">
+                        <p style="font-size: .4em">Rachèl Heimbach (WhatAbout)</p>
+                    </div>
+                </div>
+
+            </section>
+            <section class="reload-times">
+                <h2>Average load times</h2>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>Run</td>
+                        <td>Rebuild</td>
+                        <td>Page load</td>
+                    </tr>
+                    <tr>
+                        <td>Global-sites</td>
+                        <td>1-2 min</td>
+                        <td>20-40 sec</td>
+                        <td>5+ sec</td>
+                    </tr>
+                    <tr>
+                        <td>RBO</td>
+                        <td>3-5 min</td>
+                        <td>1-2 min</td>
+                        <td>5+ sec</td>
+                    </tr>
+                </table>
+                <style>
+                    .reload-times img {
+                        width: 30px;
+                        margin: 0;
+                    }
+                </style>
+            </section>
+            <section>
                 <img src="assets/storybook.svg" width="60%"/>
             </section>
 
@@ -27,25 +79,18 @@
                 </video>
             </section>
 
-            <section data-transition="slide-in fade-out">
+            <section>
                 <h2>Why Storybook?</h2>
                 <ul>
-                    <li class="fragment">Bigger apps -> Longer build time</li>
-                    <li class="fragment">Isolated component development</li>
-                    <li class="fragment">Component states visualization</li>
-                    <li class="fragment">Interactive component API</li>
-                    <li class="fragment">Documentation (WIP)</li>
+                    <li class="fragment" data-fragment-index="0">Component isolation</li>
+                    <li class="fragment" data-fragment-index="1">Component state visualization</li>
+                    <li class="fragment" data-fragment-index="2">Component interaction</li>
+                    <li class="fragment" data-fragment-index="3">   <span class="fragment semi-fade-out" data-fragment-index="5">Documentation (WIP)</span></li>
+                    <li class="fragment" data-fragment-index="4">   <span class="fragment semi-fade-out" data-fragment-index="5">Etc...</span></li>
                 </ul>
             </section>
-            <section data-transition="fade-in slide-out">
-                <h2>Why Storybook?</h2>
-                <ul>
-                    <li>Bigger apps -> Longer build time</li>
-                    <li style="opacity: .2">Isolated component development</li>
-                    <li style="opacity: .2">Component states visualization</li>
-                    <li style="opacity: .2">Interactive component API</li>
-                    <li style="opacity: .2">Documentation (WIP)</li>
-                </ul>
+            <section>
+                <h1>Demo time</h1>
             </section>
             <section class="global-sites-comparison">
                 <h2>Global-sites</h2>
@@ -70,37 +115,99 @@
                 </style>
             </section>
             <section class="reload-times">
-                <h2>Average reload times</h2>
+                <h2>Average load times</h2>
                 <table>
                     <tr>
                         <td></td>
-                        <td>Build</td>
+                        <td>Run</td>
                         <td>Rebuild</td>
-                        <td>Load page</td>
+                        <td>Page load</td>
                     </tr>
-                    <tr>
-                        <td>RBO</td>
-                        <td>3-5 min</td>
-                        <td>1-2 min</td>
-                        <td>5+ sec</td>
-                    </tr>
-                    <tr>
+                    <tr class="fragment semi-fade-out" data-fragment-index="0">
                         <td>Global-sites</td>
                         <td>1-2 min</td>
                         <td>20-40 sec</td>
                         <td>5+ sec</td>
                     </tr>
+                    <tr class="fragment semi-fade-out" data-fragment-index="0">
+                        <td>RBO</td>
+                        <td>3-5 min</td>
+                        <td>1-2 min</td>
+                        <td>5+ sec</td>
+                    </tr>
+                    <tr class="fragment" data-fragment-index="0">
+                        <td>Global-sites <img src="assets/storybook-logo.png"/></td>
+                        <td>10-20 sec*</td>
+                        <td>1-2 sec</td>
+                        <td>< 1 sec</td>
+                    </tr>
+                    <tr class="fragment" data-fragment-index="0">
+                        <td>RBO <img src="assets/storybook-logo.png"/></td>
+                        <td>20-30 sec*</td>
+                        <td>2-4 sec</td>
+                        <td>< 1 sec</td>
+                    </tr>
                 </table>
+                <p style="font-size: .8em " class="fragment" data-fragment-index="1">* Storybook needs to build an app only once to create static assets</p>
                 <style>
-                    .rbo img {
-                        border: 2px solid black
+                    .reload-times img {
+                        width: 30px;
+                        margin: 0;
                     }
                 </style>
             </section>
             <section>
+                <h1>How?</h1>
+            </section>
+
+            <section>
+                <h2>Storybook</h2>
+                <ul>
+                    <li>Component isolation</li>
+                    <li style="opacity: .2">Component state visualization</li>
+                    <li style="opacity: .2">Component interaction</li>
+                </ul>
+            </section>
+
+            <section class="component-isolation">
+                <h2>Component isolation</h2>
+                <div style="display: flex; justify-content: space-around">
+                    <div>
+                        <div class="fragment fade-in-then-semi-out" data-fragment-index="0">
+                            <p>A keyword in an article</p>
+                            <img src="assets/article-keyword.png">
+                        </div>
+                        <div class="fragment" data-fragment-index="3">
+                            <p>Parent element:</p>
+                            <pre class="scss" style="font-size: 0.3em !important"><code data-trim>
+                            .keywords {
+                                display: flex;
+                                ...
+                            }
+                        </code></pre>
+                        </div>
+                    </div>
+                    <div class="fragment semi-fade-out" data-fragment-index="3">
+                        <div class="fragment" data-fragment-index="1">
+                            <p>A keyword in isolation</p>
+                            <img src="assets/keyword-storybook.png">
+                        </div>
+                        <div class="fragment" data-fragment-index="2">
+                            <img src="assets/keyword-with-close-storybook.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h1>How does it work?</h1>
+            </section>
+
+            <section>
                 <h2>Booting components</h2>
                 <div style="display: flex">
-  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim>
+  <pre class="typescript fragment fade-in-then-semi-out" data-fragment-index="0"
+       style="font-size: 0.3em !important"><code data-trim>
 // article.component.ts
 @Component({
   selector: 'senses-article',
@@ -121,80 +228,53 @@ export class ArticleComponent implements OnInit {
 }
   </code></pre>
                     <div style="width: 20px"></div>
-                    <pre class="typescript" style="font-size: 0.2em !important"><code data-trim data-noescape>
+                    <pre class="typescript fragment" data-fragment-index="1" style="font-size: 0.2em !important"><code
+                            data-trim data-noescape>
 // article.stories.ts
+<span class="fragment semi-fade-out" data-fragment-index="3">
 const metaInfo: Meta = {
   title: 'Global-sites/UI Components/Article',
   decorators: [
     moduleMetadata({
       declarations: [],
       imports: [
-        CommonModule,
-        TranslateModule.forRoot(),
-        RouterModule.forRoot([]),
-        GlobalSitesUiComponentsModule,
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">CommonModule,</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">TranslateModule.forRoot(),</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">RouterModule.forRoot([]),</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">GlobalSitesUiComponentsModule,</mark>
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [<mark class="fragment fade-in-then-semi-out" data-fragment-index="2">CUSTOM_ELEMENTS_SCHEMA</mark>],
       providers: [
-        SensesTranslateService,
-        LogCollectorService,
-        {
-          provide: logCollectorIdToken,
-          useValue: 'app-global-sites',
-        },
-        { provide: APP_BASE_HREF, useValue: '/' },
-      ],
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">SensesTranslateService,</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">LogCollectorService,</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">{</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">  provide: logCollectorIdToken,</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">  useValue: 'storybook',</mark>
+        <mark class="fragment fade-in-then-semi-out" data-fragment-index="2">},</mark>
+        <mark class="fragment fade-in-then-semi-out"
+              data-fragment-index="2">{ provide: APP_BASE_HREF, useValue: '/' },</mark>
     }),
   ],
 };
 export default metaInfo;
-
+</span>
+<span class="fragment" data-fragment-index="3">
 export const Article = (): IStory => ({
-  propsMeta: {
-    title: 'Article',
-  },
-  component: ArticleComponent,
+  component: <mark>ArticleComponent</mark>,
   props: {
     data: ARTICLE_MOCK_DATA,
-    showHamburger: false
+    isHamburger: false
   },
 });
+</span>
   </code></pre>
                 </div>
             </section>
             <section>
                 <h2>Senses module helper</h2>
                 <div style="display: flex">
-  <pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
-export const <mark>withSensesDefaults</mark> = ({
-  imports = [],
-  providers = [],
-  schemas = [],
-  ...metadata
-}: Partial&lt;NgModuleMetadata>): Partial&lt;NgModuleMetadata> => ({
-  ...metadata,
-  imports: [
-    ...imports,
-    CommonModule,
-    TranslateModule.forRoot(),
-    RouterModule.forRoot([]),
-  ],
-  providers: [
-    ...providers,
-    { provide: APP_BASE_HREF, useValue: '/' },
-    LogCollectorService,
-    {
-      provide: logCollectorIdToken,
-      useValue: 'storybook',
-    },
-    SensesTranslateService,
-  ],
-  schemas: [...schemas, CUSTOM_ELEMENTS_SCHEMA],
-});
-
-  </code></pre>
-                    <div style="width: 20px"></div>
-                    <pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
+   <pre class="typescript fragment fade-in-then-semi-out" style="font-size: 0.3em !important"><code data-trim
+                                                                                                    data-noescape>
 // article.stories.ts
 const metaInfo: Meta = {
   title: 'Global-sites/UI Components/Article',
@@ -209,19 +289,242 @@ const metaInfo: Meta = {
 export default metaInfo;
 
 export const Article = (): IStory => ({
-  propsMeta: {
-    title: 'Article',
-  },
   component: ArticleComponent,
   props: {
     data: ARTICLE_MOCK_DATA,
-    showHamburger: false,
+    isHamburger: false,
+  },
+});
+
+  </code></pre>
+                    <div style="width: 20px"></div>
+                    <pre class="typescript fragment" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const <mark>withSensesDefaults</mark> = ({
+  imports = [],
+  providers = [],
+  schemas = [],
+  ...metadata
+}: Partial&lt;NgModuleMetadata>): Partial&lt;NgModuleMetadata> => ({
+  ...metadata,
+  imports: [
+    ...imports,
+    <mark>CommonModule,</mark>
+    <mark>TranslateModule.forRoot(),</mark>
+    <mark>RouterModule.forRoot([]),</mark>
+  ],
+  providers: [
+    ...providers,
+    <mark>{ provide: APP_BASE_HREF, useValue: '/' },</mark>
+    <mark>LogCollectorService,</mark>
+    <mark>{</mark>
+    <mark>  provide: logCollectorIdToken,</mark>
+    <mark>  useValue: 'storybook',</mark>
+    <mark>},</mark>
+    <mark>SensesTranslateService,</mark>
+  ],
+  schemas: [...schemas, CUSTOM_ELEMENTS_SCHEMA],
+});
+
+  </code></pre>
+
+                </div>
+            </section>
+            <section>
+                <h2>Global-sites module helper</h2>
+                <div style="display: flex">
+                    <pre class="typescript fragment fade-in-then-semi-out" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const <mark>withSensesDefaults</mark> = ({
+  imports = [],
+  providers = [],
+  schemas = [],
+  ...metadata
+}: Partial&lt;NgModuleMetadata>): Partial&lt;NgModuleMetadata> => ({
+  ...metadata,
+  imports: [
+    ...imports,
+    <mark>CommonModule,</mark>
+    <mark>TranslateModule.forRoot(),</mark>
+    <mark>RouterModule.forRoot([]),</mark>
+  ],
+  providers: [
+    ...providers,
+    <mark>{ provide: APP_BASE_HREF, useValue: '/' },</mark>
+    <mark>LogCollectorService,</mark>
+    <mark>{</mark>
+    <mark>  provide: logCollectorIdToken,</mark>
+    <mark>  useValue: 'storybook',</mark>
+    <mark>},</mark>
+    <mark>SensesTranslateService,</mark>
+  ],
+  schemas: [...schemas, CUSTOM_ELEMENTS_SCHEMA],
+});
+
+  </code></pre>
+                    <div style="width: 20px"></div>
+<pre class="typescript fragment" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const <mark>withGlobalSitesDefaults</mark> = ({
+  imports = [],
+  ...metadata
+}: Partial&lt;NgModuleMetadata>): Partial&lt;NgModuleMetadata> =>
+  <mark>withSensesDefaults</mark>({
+    ...metadata,
+    imports: [...imports, <mark>GlobalSitesCommonModule</mark>],
+  });
+
+  </code></pre>
+
+                </div>
+            </section>
+            <section>
+                <h2>Storybook</h2>
+                <ul>
+                    <li style="opacity: .2">Component isolation</li>
+                    <li>Component state visualization</li>
+                    <li style="opacity: .2">Component interaction</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Text component</h2>
+                <img src="assets/component-states.gif">
+            </section>
+            <section>
+                <h2>Text component</h2>
+                <div style="display: flex">
+                    <div>
+                        <img src="assets/component-states.gif">
+                        <pre class="typescript fragment fade-in-then-semi-out" style="font-size: 0.3em !important"><code data-trim data-noescape>
+const metaInfo: Meta = {
+  title: 'Global-sites/UI Components/Text',
+  decorators: [
+    moduleMetadata(
+      <mark>withGlobalSitesDefaults</mark>({
+        declarations: [<mark>TextComponent</mark>],
+      })
+    ),
+  ],
+};
+
+export default metaInfo;
+  </code></pre>
+                    </div>
+
+                    <pre class="typescript fragment" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const <mark>HTML</mark> = createStory(TextComponent, {
+  controlData: {
+    data: `&lt;a href="/">This is a link&lt;/a>
+&lt;br />
+&lt;b>This is bold&lt;/b>
+&lt;br />
+&lt;i>This is cursive&lt;/i>`,
+  },
+});
+
+export const <mark>List</mark> = createStory(TextComponent, {
+  controlData: {
+    data: `&lt;ul>
+  &lt;li>Item 1&lt;/li>
+  &lt;li>Item 2&lt;/li>
+  &lt;li>Item 3&lt;/li>
+  &lt;li>Item 4&lt;/li>
+&lt;/ul>`,
+  },
+});
+
+export const <mark>Table</mark> = createStory(TextComponent, {
+  controlData: {
+    data: `&lt;table>
+  &lt;tr>
+    &lt;td>Row 1 column 1&lt;/td>
+    &lt;td>Row 1 column 2&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>Row 2 column 1&lt;/td>
+    &lt;td>Row 2 column 2&lt;/td>
+  &lt;/tr>
+&lt;/table>`,
   },
 });
 
   </code></pre>
                 </div>
+
             </section>
+            <section>
+                <h2>Storybook</h2>
+                <ul>
+                    <li style="opacity: .2">Component isolation</li>
+                    <li style="opacity: .2">Component state visualization</li>
+                    <li>Component interaction</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Easily change input</h2>
+                <img width="80%" src="assets/media-cards-storybook.gif"/>
+            </section>
+            <section>
+                <h2>Easily configure input</h2>
+                <img width="80%" src="assets/media-cards-storybook-controls.gif"/>
+            </section>
+            <section>
+                <h2>Capture output</h2>
+                <div style="display: flex">
+<pre class="typescript" style="font-size: 0.3em !important"><code data-trim data-noescape>
+export const Article = createStory(ArticleComponent, {
+  data: {
+    data: ARTICLE_MOCK_DATA,
+  },
+  controlData: {
+    isHamburger: true,
+  },
+  controlTypes: {
+    imageClick: {
+      action: 'Image clicked',
+    },
+  },
+});
+  </code></pre>
+                    <div style="width: 20px"></div>
+                    <img  src="assets/article-image-click.gif"/>
+                </div>
+            </section>
+            <section>
+                <h2>And now the "bad news"</h2>
+                <p class="fragment">Storybook is supported by Nx 8+</p>
+                <p class="fragment">and we're on 7 ;(</p>
+            </section>
+            <section>
+                <h2>Custom setup</h2>
+                <ul>
+                    <li class="fragment">Hacky script overrides "defaultProject" depending on which application is chosen</li>
+                    <li class="fragment">Storybook requires middleware.js with custom config to proxy assets</li>
+                    <li class="fragment">Translation files are not found (not investigated yet)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Current usage</h2>
+                <p>Build Global-Sites</p>
+                <pre class="bash" style="font-size: .4em"><code data-trim data-noescape>
+PROJECT=global-sites yarn build-storybook
+  </code></pre>
+                <p>Run lib stories within Global-Sites context</p>
+                <pre class="bash" style="font-size: .4em"><code data-trim data-noescape>
+PROJECT=global-sites INCLUDE=global-sites-ui-components yarn storybook
+  </code></pre>
+                <p>Run specific lib stories within Global-Sites context</p>
+                <pre class="bash" style="font-size: .4em"><code data-trim data-noescape>
+PROJECT=global-sites INCLUDE=global-sites-ui-components FILTER=article yarn storybook
+  </code></pre>
+            </section>
+            <section>
+                <h2>But here's the good news</h2>
+                <p class="fragment">As soon as we upgrade to Nx 8+</p>
+                <pre class="bash fragment"><code data-trim data-noescape>
+yarn add --dev @nrwl/storybook
+nx g @nrwl/angular:storybook-configuration &lt;project-name>
+nx run &lt;project-name>:storybook
+  </code></pre>
+            </section>
+            <section><h1>Questions?</h1></section>
         </section>
     </div>
 </div>
