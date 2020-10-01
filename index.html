@@ -30,7 +30,7 @@
                         <p style="font-size: .4em">Stefan Kemp (Wayz)</p>
                     </div>
                     <div style="flex: 1">
-                        <img src="assets/media-cards-storybook.gif">
+                        <img src="assets/frank.JPG">
                         <p style="font-size: .4em">Frank Walinga (Googlix)</p>
                     </div>
                     <div style="flex: 1">
@@ -39,6 +39,9 @@
                     </div>
                 </div>
 
+            </section>
+            <section>
+                <h1>Senses</h1>
             </section>
             <section class="reload-times">
                 <h2>Average load times</h2>
@@ -219,7 +222,7 @@ export class ArticleComponent implements OnInit {
   data: Article;
 
   @Input()
-  showHamburger: boolean = false;
+  isHamburger: boolean = false;
 
   @Output()
   imageClick = new EventEmitter&lt;Image | RichImage&gt;();
@@ -273,32 +276,7 @@ export const Article = (): IStory => ({
             <section>
                 <h2>Senses module helper</h2>
                 <div style="display: flex">
-   <pre class="typescript fragment fade-in-then-semi-out" style="font-size: 0.3em !important"><code data-trim
-                                                                                                    data-noescape>
-// article.stories.ts
-const metaInfo: Meta = {
-  title: 'Global-sites/UI Components/Article',
-  decorators: [
-    moduleMetadata(
-      <mark>withSensesDefaults</mark>({
-        imports: [GlobalSitesUiComponentsModule],
-      })
-    ),
-  ],
-};
-export default metaInfo;
-
-export const Article = (): IStory => ({
-  component: ArticleComponent,
-  props: {
-    data: ARTICLE_MOCK_DATA,
-    isHamburger: false,
-  },
-});
-
-  </code></pre>
-                    <div style="width: 20px"></div>
-                    <pre class="typescript fragment" style="font-size: 0.3em !important"><code data-trim data-noescape>
+                                    <pre class="typescript fragment fade-in-then-semi-out" style="font-size: 0.3em !important"><code data-trim data-noescape>
 export const <mark>withSensesDefaults</mark> = ({
   imports = [],
   providers = [],
@@ -326,6 +304,32 @@ export const <mark>withSensesDefaults</mark> = ({
 });
 
   </code></pre>
+                    <div style="width: 20px"></div>
+   <pre class="typescript fragment" style="font-size: 0.3em !important"><code data-trim
+                                                                                                    data-noescape>
+// article.stories.ts
+const metaInfo: Meta = {
+  title: 'Global-sites/UI Components/Article',
+  decorators: [
+    moduleMetadata(
+      <mark>withSensesDefaults</mark>({
+        imports: [GlobalSitesUiComponentsModule],
+      })
+    ),
+  ],
+};
+export default metaInfo;
+
+export const Article = (): IStory => ({
+  component: ArticleComponent,
+  props: {
+    data: ARTICLE_MOCK_DATA,
+    isHamburger: false,
+  },
+});
+
+  </code></pre>
+
 
                 </div>
             </section>
@@ -450,6 +454,10 @@ export const <mark>Table</mark> = createStory(TextComponent, {
 
             </section>
             <section>
+                <h2>Visualization tools</h2>
+                <img src="assets/storybook-viewport.gif"/>
+            </section>
+            <section>
                 <h2>Storybook</h2>
                 <ul>
                     <li style="opacity: .2">Component isolation</li>
@@ -524,7 +532,10 @@ nx g @nrwl/angular:storybook-configuration &lt;project-name>
 nx run &lt;project-name>:storybook
   </code></pre>
             </section>
-            <section><h1>Questions?</h1></section>
+            <section>
+                <h1>Questions?</h1>
+                <img width="80%" src="assets/chopper.JPG"/>
+            </section>
         </section>
     </div>
 </div>
